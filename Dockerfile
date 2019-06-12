@@ -21,6 +21,8 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 #     browser.launch({executablePath: 'google-chrome-unstable'})
 # ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 RUN wget -O /usr/sbin/cc-test-reporter https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+    && chmod +x /usr/sbin/cc-test-reporter
+    && chmod 775 /usr/sbin/cc-test-reporter
 # Install puppeteer so it's available in the container.
 RUN npm i puppeteer \
     # Add user so we don't need --no-sandbox.
